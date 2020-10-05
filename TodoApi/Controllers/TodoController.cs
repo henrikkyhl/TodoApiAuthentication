@@ -7,7 +7,8 @@ using TodoApi.Models;
 namespace TodoApi.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Todo")]
+    [Route("[controller]")]
+    [ApiController]
     public class TodoController : Controller
     {
         private readonly IRepository<TodoItem> repository;

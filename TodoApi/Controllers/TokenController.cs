@@ -12,10 +12,10 @@ namespace TodoApi.Controllers
         private IRepository<User> repository;
         private IAuthenticationHelper authenticationHelper;
 
-        public TokenController(IRepository<User> repos, IAuthenticationHelper authService)
+        public TokenController(IRepository<User> repos, IAuthenticationHelper authHelper)
         {
             repository = repos;
-            authenticationHelper = authService;
+            authenticationHelper = authHelper;
         }
 
 

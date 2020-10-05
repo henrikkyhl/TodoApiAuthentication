@@ -20,12 +20,12 @@
 					"raw": "{\n\t\"username\": \"UserJoe\",\n\t\"password\": \"1234\"\n}"
 				},
 				"url": {
-					"raw": "https://localhost:44358/token",
+					"raw": "https://localhost:5001/token",
 					"protocol": "https",
 					"host": [
 						"localhost"
 					],
-					"port": "44358",
+					"port": "5001",
 					"path": [
 						"token"
 					]
@@ -48,12 +48,12 @@
 					"raw": "{\n\t\"username\": \"AdminAnn\",\n\t\"password\": \"1234\"\n}"
 				},
 				"url": {
-					"raw": "https://localhost:44358/token",
+					"raw": "https://localhost:5001/token",
 					"protocol": "https",
 					"host": [
 						"localhost"
 					],
-					"port": "44358",
+					"port": "5001",
 					"path": [
 						"token"
 					]
@@ -68,22 +68,18 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVXNlckpvZSIsIm5iZiI6MTU0MDEyMzExNCwiZXhwIjoxNTQwMjA5NTE0fQ.zxmjyVdv2IZqdB9DKC7pTDag7f6xycrjSOdxrv87lig"
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVXNlckpvZSIsIm5iZiI6MTYwMTY0MDkzOCwiZXhwIjoxNjAxNjQxNTM4fQ.jkdGqnhKZoWiyteohWvWAEMWbofvoEKQLBW-yZNL7vo",
+						"disabled": false
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
-					"raw": "https://localhost:44358/api/todo/",
+					"raw": "https://localhost:5001/todo/",
 					"protocol": "https",
 					"host": [
 						"localhost"
 					],
-					"port": "44358",
+					"port": "5001",
 					"path": [
-						"api",
 						"todo",
 						""
 					]
@@ -98,22 +94,17 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQWRtaW5Bbm4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwibmJmIjoxNTQwMTIzMjI5LCJleHAiOjE1NDAyMDk2Mjl9.D6OvWg02wBHv_iT4IZ0WJmo4WsqlJVWSq7vYGK8DAtM"
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQWRtaW5Bbm4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwibmJmIjoxNjAxNjQxMTQ2LCJleHAiOjE2MDE2NDE3NDZ9.lr5QFJOOwoQVQDicvYE5-dWK9IrhJ89ONGc9Uf1n6Ng"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
-					"raw": "https://localhost:44358/api/todo/1",
+					"raw": "https://localhost:5001/todo/1",
 					"protocol": "https",
 					"host": [
 						"localhost"
 					],
-					"port": "44358",
+					"port": "5001",
 					"path": [
-						"api",
 						"todo",
 						"1"
 					]
