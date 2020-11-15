@@ -18,12 +18,14 @@ namespace TodoApi
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
+            Environment = env;
         }
 
         public IConfiguration Configuration { get; }
+        public IWebHostEnvironment Environment { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -50,15 +52,26 @@ namespace TodoApi
                 };
             });
 
-            // In-memory database:
-            services.AddDbContext<TodoContext>(opt => opt.UseInMemoryDatabase("TodoList"));
+            if (Environment.IsDevelopment())
+            {
+                // SqLite database:
+                services.AddDbContext<TodoContext>(opt =>
+                    opt.UseSqlite("Data Source=TodoDb.db"));
+                // Register SqLite database initializer for dependency injection.
+                services.AddTransient<IDbInitializer, SqLiteDbInitializer>();
+            }
+            else
+            {
+                // Azure SQL database:
+                services.AddDbContext<TodoContext>(opt =>
+                         opt.UseSqlServer(Configuration.GetConnectionString("defaultConnection")));
+                // Register SQL Server database initializer for dependency injection.
+                services.AddTransient<IDbInitializer, SqlServerDbInitializer>();
+            }
 
             // Register repositories for dependency injection
             services.AddScoped<IRepository<TodoItem>, TodoItemRepository>();
             services.AddScoped<IRepository<User>, UserRepository>();
-
-            // Register database initializer
-            services.AddTransient<IDbInitializer, DbInitializer>();
 
             // Register the AuthenticationHelper in the helpers folder for dependency
             // injection. It must be registered as a singleton service. The AuthenticationHelper

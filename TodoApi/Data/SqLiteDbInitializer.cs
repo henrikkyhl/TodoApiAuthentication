@@ -1,38 +1,34 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using TodoApi.Helpers;
 using TodoApi.Models;
+using TodoApi.Helpers;
 
 namespace TodoApi.Data
 {
-    public class DbInitializer : IDbInitializer
+    public class SqLiteDbInitializer : IDbInitializer
     {
         private IAuthenticationHelper authenticationHelper;
 
-        public DbInitializer(IAuthenticationHelper authHelper)
+        public SqLiteDbInitializer(IAuthenticationHelper authHelper)
         {
             authenticationHelper = authHelper;
         }
 
-        // This method will create and seed the database.
+        // This method will cre<ate and seed the database.
         public void Initialize(TodoContext context)
         {
+            // Delete the database, if it already exists. You need to clean and build
+            // the solution for this to take effect.
+            context.Database.EnsureDeleted();
+
             // Create the database, if it does not already exists. If the database
             // already exists, no action is taken (and no effort is made to ensure it
             // is compatible with the model for this context).
             context.Database.EnsureCreated();
 
-            // Look for any TodoItems
-            if (context.TodoItems.Any())
-            {
-                return;   // DB has been seeded
-            }
-
             List<TodoItem> items = new List<TodoItem>
             {
-                new TodoItem { IsComplete=true, Name="Make homework"},
-                new TodoItem { IsComplete=false, Name="Sleep"},
-                new TodoItem { IsComplete=false, Name="<h3>Message from a Black Hat! Ha, ha, ha...<h3>"}
+                new TodoItem {IsComplete=true, Name="Use SqLite"},
+                new TodoItem {IsComplete=false, Name="Exam project"}
             };
 
             // Create two users with hashed and salted passwords
@@ -60,9 +56,6 @@ namespace TodoApi.Data
             context.TodoItems.AddRange(items);
             context.Users.AddRange(users);
             context.SaveChanges();
-
         }
-
-
     }
 }
